@@ -1,223 +1,241 @@
-Expense Tracker Application
-Overview
-The Expense Tracker Application is a full-stack web application that allows users to manage their daily expenses. Users can add, update, delete, and view expenses through a simple web interface.
+💰 Expense Tracker – Spring Boot Application
 
-The backend is built using Spring Boot REST APIs, while the frontend is implemented using HTML, JavaScript, and REST calls.
+A full-stack Expense Tracker application built using Spring Boot, Spring Data JPA, MySQL, and JavaScript.
+This project allows users to add, view, update, and delete expenses through REST APIs with a simple frontend interface.
 
-This project follows a layered architecture to maintain clean separation of concerns between the controller, business logic, and data access layers.
+The application follows a clean layered architecture (Controller → Service → Repository → Database) which is commonly used in enterprise Java backend development.
 
-Features
+🚀 Features
 
-Add a new expense
+Add new expenses
 
 View all expenses
 
 View expense by ID
 
-Update expense details
+Update existing expenses
 
-Delete an expense
+Delete expenses
 
-RESTful API architecture
+RESTful API design
 
 MySQL database integration
 
-Simple frontend interface
+Simple frontend using HTML & JavaScript
 
-Tech Stack
+Cross-Origin support for frontend communication
+
+🧰 Tech Stack
 Backend
 
 Java 17
 
 Spring Boot
 
-Spring MVC
+Spring Web MVC
 
 Spring Data JPA
 
 Hibernate ORM
 
-Maven
-
 Lombok
 
-Frontend
-
-HTML
-
-JavaScript
-
-Fetch API
+Maven
 
 Database
 
 MySQL
 
+Frontend
+
+HTML
+
+CSS
+
+JavaScript (Fetch API)
+
 Tools
 
-IntelliJ IDEA / VS Code
-
-Postman (for API testing)
-
 Git & GitHub
-Project Architecture
 
-This project follows a Layered Architecture.
-Client (Browser / Frontend)
-        |
-        v
+Postman
+
+IntelliJ / VS Code
+
+Maven
+
+🏗️ Project Architecture
+
+The project follows a Layered Architecture Pattern.
+
+Client (Browser / Postman)
+        │
+        ▼
 Controller Layer
 (Handles HTTP Requests)
-        |
-        v
+        │
+        ▼
 Service Layer
 (Business Logic)
-        |
-        v
+        │
+        ▼
 Repository Layer
-(Data Access using JPA)
-        |
-        v
+(Database Operations using JPA)
+        │
+        ▼
 Database (MySQL)
 Layer Explanation
-Controller Layer
+1️⃣ Controller Layer
 
-Handles incoming HTTP requests and sends responses to the client.
+Handles incoming HTTP requests and sends responses back to the client.
 
-Example:
+ExpenseController.java
 
-ExpenseController
+Endpoints are defined using:
 
-Endpoints like:
+@RestController
 
-POST /api/expenses
-GET /api/expenses
-PUT /api/expenses/{id}
-DELETE /api/expenses/{id}
-Service Layer
+@RequestMapping
 
-Contains the business logic of the application.
+@GetMapping
 
-Example:
+@PostMapping
 
-ExpenseService
-ExpenseServiceImpl
+@PutMapping
 
-Responsibilities:
+@DeleteMapping
 
-Process business rules
+2️⃣ Service Layer
 
-Communicate with repository layer
+Contains business logic of the application.
 
-Repository Layer
-
-Handles database operations using Spring Data JPA.
-
-Example:
-
-ExpenseRepository
+ExpenseService.java
+ExpenseServiceImpl.java
 
 Responsibilities:
 
-CRUD operations
+Process expense data
 
-Data persistence
+Call repository methods
 
-Entity Layer
+Handle application logic
+
+3️⃣ Repository Layer
+
+Handles database interaction using Spring Data JPA.
+
+ExpenseRepository.java
+
+Uses:
+
+JpaRepository<Expense, Long>
+
+Spring automatically provides:
+
+save()
+
+findAll()
+
+findById()
+
+deleteById()
+
+4️⃣ Entity Layer
 
 Represents the database table structure.
 
-Example:
+Expense.java
 
-Expense
+Uses JPA annotations like:
 
-Fields:
-
-id
-title
-amount
-category
-date
-Database Schema
-
-Expense Table
-
-Column	Type
-id	Long
-title	String
-amount	Double
-category	String
-date	LocalDate
-REST API Endpoints
-Add Expense
-POST /api/expenses
-
-Request Body
-
-{
-  "title": "Food",
-  "amount": 250,
-  "category": "Daily",
-  "date": "2026-03-10"
-}
-Get All Expenses
-GET /api/expenses
-Get Expense By ID
-GET /api/expenses/{id}
-
-Example
-
-GET /api/expenses/1
-Update Expense
-PUT /api/expenses/{id}
-
-Request Body
-
-{
-  "title": "Groceries",
-  "amount": 500,
-  "category": "Food",
-  "date": "2026-03-10"
-}
-Delete Expense
-DELETE /api/expenses/{id}
-Project Structure
+@Entity
+@Id
+@GeneratedValue
+📂 Project Structure
 Expense_Tracker2
 │
 ├── Controller
-│   └── ExpenseController
+│   └── ExpenseController.java
 │
 ├── Service
-│   ├── ExpenseService
-│   └── ExpenseServiceImpl
+│   ├── ExpenseService.java
+│   └── ExpenseServiceImpl.java
 │
 ├── Repository
-│   └── ExpenseRepository
+│   └── ExpenseRepository.java
 │
 ├── Entity
-│   └── Expense
+│   └── Expense.java
 │
 ├── resources
 │   ├── application.properties
 │   └── static
 │        ├── index.html
 │        └── script.js
+│
+└── ExpenseTracker2Application.java
+🔗 REST API Endpoints
+Base URL
+http://localhost:8080/api/expenses
+1️⃣ Add Expense
 
-Update application.properties
+POST /api/expenses
 
+{
+  "title": "Food",
+  "amount": 500,
+  "category": "Daily",
+  "date": "2025-03-01"
+}
+2️⃣ Get All Expenses
+
+GET /api/expenses
+
+Returns all saved expenses.
+
+3️⃣ Get Expense By ID
+
+GET /api/expenses/{id}
+
+Example:
+
+/api/expenses/1
+4️⃣ Update Expense
+
+PUT /api/expenses/{id}
+
+5️⃣ Delete Expense
+
+DELETE /api/expenses/{id}
+
+🗄️ Database Configuration
+
+Update your application.properties:
+
+spring.datasource.url=jdbc:mysql
 spring.datasource.username=root
-spring.datasource.password=yourpassword
+spring.datasource.password=your_password
 
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
-4 Run the application
-
-Using Maven
-
+spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
+▶️ How to Run the Project
+1️⃣ Clone the repository
+https://github.com/shreshtabhatnagar-max/Expense
+2️⃣ Navigate to project folder
+cd expense-tracker
+3️⃣ Run the application
 mvn spring-boot:run
+4️⃣ Open in browser
+📸 Application UI
 
-Or run the main class
+The frontend interface allows users to:
 
-ExpenseTracker2Application.java
-5 Access Application
+Add expenses
+
+View expense list
+
+Manage expense records
+
+Built using HTML + JavaScript with Fetch API.
 
