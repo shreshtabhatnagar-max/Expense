@@ -175,8 +175,6 @@ Expense_Tracker2
 │
 └── ExpenseTracker2Application.java
 🔗 REST API Endpoints
-Base URL
-http://localhost:8080/api/expenses
 1️⃣ Add Expense
 
 POST /api/expenses
