@@ -202,16 +202,9 @@ Expense_Tracker2
 │   └── static
 │        ├── index.html
 │        └── script.js
-How to Run the Project
-1 Clone the repository
-git clone https://github.com/your-username/Expense-Tracker.git
-2 Navigate to project
-cd Expense-Tracker
-3 Configure MySQL Database
 
 Update application.properties
 
-spring.datasource.url=jdbc:mysql://localhost:3306/expense_db
 spring.datasource.username=root
 spring.datasource.password=yourpassword
 
@@ -228,10 +221,3 @@ Or run the main class
 ExpenseTracker2Application.java
 5 Access Application
 
-Frontend
-
-http://localhost:8080/index.html
-
-API Base URL
-
-http://localhost:8080/api/expenses
