@@ -1,9 +1,9 @@
-FROM openjdk:17
+FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
-COPY Expense_Tracker2/target/*.jar app.jar
+COPY . .
 
-EXPOSE 8080
+RUN ./mvnw clean package -DskipTests
 
-ENTRYPOINT ["java","-jar","app.jar"]
+CMD ["java", "-jar", "target/*.jar"]
