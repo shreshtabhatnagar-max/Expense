@@ -25,6 +25,18 @@ Simple frontend using HTML & JavaScript
 
 Cross-Origin support for frontend communication
 
+🌐 Live API
+
+The application is deployed on Render and accessible here:
+
+🔗 https://expense-859c.onrender.com
+
+Example API endpoint:
+
+GET https://expense-859c.onrender.com/api/expenses
+
+You can test the APIs using Postman or directly in your browser.
+
 🧰 Tech Stack
 Backend
 
