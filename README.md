@@ -29,7 +29,7 @@ Cross-Origin support for frontend communication
 
 The application is deployed on Render and accessible here:
 
-🔗 https://expense-859c.onrender.com
+🔗 [https://expense-859c.onrender.com](https://expense-859c.onrender.com/swagger-ui/index.html)
 
 Example API endpoint:
 
