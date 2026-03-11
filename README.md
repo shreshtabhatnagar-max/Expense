@@ -31,11 +31,6 @@ The application is deployed on Render and accessible here:
 
 🔗 [https://expense-859c.onrender.com](https://expense-859c.onrender.com/swagger-ui/index.html)
 
-Example API endpoint:
-
-GET https://expense-859c.onrender.com/api/expenses
-
-You can test the APIs using Postman or directly in your browser.
 
 🧰 Tech Stack
 Backend
